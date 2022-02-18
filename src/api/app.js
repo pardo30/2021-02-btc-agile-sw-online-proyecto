@@ -14,9 +14,9 @@ app.use(cors());
 app.use(morgan('dev'));
 
 // Home route
-app.get('/', (req, res) => { res.send('Home Page') });
+//app.get('/', (req, res) => { res.send('Home Page') });
 
 // Routes
-app.get()
+app.use('/book', require('./routers/books.router'))
 
 module.exports = app;
