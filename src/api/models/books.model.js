@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const bookSchema = new Schema({
-    name: {
+    title: {
         type: String,
         require: true,
     },
@@ -22,7 +22,7 @@ const bookSchema = new Schema({
         type: String,
     },
     date: {
-        type: Date,
+        type: Number,
     }
 });
 
