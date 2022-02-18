@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Form = (props) => {
+const Form = () => {
     const PORT = process.env.PORT || 4400;
     const [book,setBook] = useState (
         {
@@ -41,14 +41,15 @@ const Form = (props) => {
                     date: "" 
                 })
             })
+            .catch(err => console.log(err))
         e.preventDefault()
     }
 
     return (
-        <div>
+        <div className='column'>
             <form onSubmit={AddBook}>
                 <div className='card-title'>ADD A BOOK</div>
-                <div className='input-field col s6'>
+                <div className='input-field col s12'>
                     <label className='text-form'>
                         Title:
                     </label>
@@ -61,7 +62,7 @@ const Form = (props) => {
                     />
 
                 </div>
-                <div className='input-field col s6'>
+                <div className='input-field col s12'>
                     <label className='text-form'>
                         Authors:
                     </label>
@@ -74,7 +75,7 @@ const Form = (props) => {
                     />
 
                 </div>
-                <div className='input-field col s6'>
+                <div className='input-field col s12'>
                     <label className='text-form'>
                         Editorial:
                     </label>
@@ -84,6 +85,19 @@ const Form = (props) => {
                         placeholder='Editorial'
                         onChange={handleChande}
                         value={book.editorial}
+                    />
+
+                </div>
+                <div className='input-field col s12'>
+                    <label className='text-form'>
+                        ISBN:
+                    </label>
+                    <input
+                        name='ISBN'
+                        type='text'
+                        placeholder='ISBN'
+                        onChange={handleChande}
+                        value={book.ISBN}
                     />
 
                 </div>
@@ -102,19 +116,6 @@ const Form = (props) => {
                 </div>
                 <div className='input-field col s6'>
                     <label className='text-form'>
-                        ISBN:
-                    </label>
-                    <input
-                        name='ISBN'
-                        type='text'
-                        placeholder='ISBN'
-                        onChange={handleChande}
-                        value={book.ISBN}
-                    />
-
-                </div>
-                <div className='input-field col s6'>
-                    <label className='text-form'>
                         Year:
                     </label>
                     <input
@@ -124,7 +125,8 @@ const Form = (props) => {
                         onChange={handleChande}
                         value={book.date}
                     />
-                <div className='input-field col s6'>
+                </div>  
+                <div className='input-field col s12'>
                     <label className='text-form'>
                         Description:
                     </label>
@@ -136,8 +138,6 @@ const Form = (props) => {
                         onChange={handleChande}
                         value={book.description}
                     ></textarea>
-
-                </div>
 
                 </div>
                 <button type='submit' className='btn dark-blue btn-darken-4'>Add</button>

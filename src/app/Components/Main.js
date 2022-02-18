@@ -7,10 +7,9 @@ const Main = () => {
       
 
   return (
-    <div id='main'>
-        <Form/>
-        <List/>
-
+    <div id='main' className='row'>
+      <div className='col s4'><Form/></div>
+      <div className='col s8'><List/></div>
     </div>
   )
 }

@@ -2,7 +2,7 @@ const app = require('./app');
 require('./database');
 const dotenv = require('dotenv');
 dotenv.config();
-// const PORT = process.env.PORT || 4000;
+//const PORT = process.env.PORT || 4000;
 const PORT = 4400;
 
 async function init() {
