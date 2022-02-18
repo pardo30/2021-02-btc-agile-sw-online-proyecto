@@ -5,7 +5,6 @@ const Book = require('../models/books.model');
 bookMethod.getBook = async (req,res) => {
     const id = req.params.id;
     const book = await Book.findById(id);
-    console.log(id, book)
     if (book) {
         return res.status(200).json(book)
     } else {
@@ -15,7 +14,6 @@ bookMethod.getBook = async (req,res) => {
 
 bookMethod.getAllBooks = async (req,res) => {
     const books = await Book.find();
-    console.log(books)
     if (books) {
         return res.status(200).json(books)
     } else {

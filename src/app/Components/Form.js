@@ -42,7 +42,6 @@ const Form = () => {
                 })
             })
             .catch(err => console.log(err))
-        e.preventDefault()
     }
 
     return (

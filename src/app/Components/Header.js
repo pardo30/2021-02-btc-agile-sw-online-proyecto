@@ -2,7 +2,10 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <div id='Header'>This is the Header</div>
+    <div id='Header'>
+      My Personal Book Collection
+    <div>Search</div>
+    </div>
   )
 }
 

@@ -22,18 +22,33 @@ const List = () => {
       <table>
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Authors</th>
-            <th>Year</th>
+            <th className='col s3'>Title</th>
+            <th className='col s5'>Authors</th>
+            <th className='col s4'>Year</th>
           </tr>
         </thead>
         <tbody>
           {books.map(book => {
             return (
               <tr key={book._id}>
-                <td>{book.title}</td>
-                <td>{book.authors}</td>
-                <td>{book.date}</td>
+                <td className='col s3'>{book.title}</td>
+                <td className='col s5'>{book.authors}</td>
+                <td className='col s1'>{book.date}</td>
+                <td className='col s3'>
+                <button className='btn btn-small btn-flat disabled dark-blue darken-4'>
+                    <i className='material-icons'>info</i>
+                  </button>
+                  <button
+                    className='btn btn-small btn-flat disabled dark-blue darken-4'
+                    style={{ paddingLeft: '5px' }}>
+                    <i className='material-icons'>delete</i>
+                  </button>
+                  <button
+                    className='btn-small btn-flat disabled dark-blue darken-4'
+                    style={{ paddingLeft: '5px' }}>
+                    <i className='material-icons'>edit</i>
+                  </button>
+                </td>
               </tr>
             )
           })}
