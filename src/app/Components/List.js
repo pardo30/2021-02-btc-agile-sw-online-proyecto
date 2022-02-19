@@ -64,11 +64,11 @@ const List = () => {
               </div>
             )
           })}
-        </div>
     {showPopup
     ?<Details bookId={detailId}/>
     : null
     }
+        </div>
     </div>
   )
 }
