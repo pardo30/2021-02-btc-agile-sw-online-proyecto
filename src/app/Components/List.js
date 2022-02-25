@@ -9,10 +9,10 @@ const List = () => {
 
 
   useEffect(() => {
-    GetBooks()
+    getBooks()
   }, [])
 
-  function GetBooks() {
+  function getBooks() {
     fetch(`http://localhost:${PORT}/book/getAllBooks`)
       .then(res => res.json())
       .then(data => {
@@ -21,21 +21,46 @@ const List = () => {
       .catch(err => console.log(err))
   }
 
+  function deleteBook(id) {
+    if (window.confirm(`Do you want to delete ${id}?`)) {
+      fetch(`http://localhost:${PORT}/book/delete/${id}`, {
+          method: 'DELETE',
+          headers: {
+              'Content-type': 'application/json',
+              'Accept': 'application/json',
+          }
+      })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data)
+              window.M.toast({ html: 'Book deleted' })
+          })
+          .then(getBooks())
+          .catch(err => console.error(err))
+  }
+  }
+
   function opener (id) {
     setDetailId(id)
     setShowPopup(!showPopup)
   }
 
+  function deleter (id) {
+    setDetailId(id)
+    deleteBook(id)
+  }
+
+
   return (
     <div className='col s12'>
           <div>
-            <div className='col s3'>Title</div>
-            <div className='col s5'>Authors</div>
-            <div className='col s1'>Year</div>
-            <div className='col s3'></div>
+            <div className='lighten col s3'>Title</div>
+            <div className='lighten col s5'>Authors</div>
+            <div className='lighten col s1'>Year</div>
+            <div className='lighten col s3'></div>
+          <hr/>
           </div>
-
-        <div>
+        <div className='col s12'>
           {books.map(book => {
             return (
               <div key={book._id} className='row'>
@@ -51,7 +76,8 @@ const List = () => {
                   </button>
                   <button
                     className='btn btn-small btn-flat dark-blue darken-4'
-                    style={{ marginLeft: '2px' }}>
+                    style={{ marginLeft: '2px' }}
+                    onClick={() => deleter(book._id)}>
                     <i className='material-icons'>delete</i>
                   </button>
                   <button
