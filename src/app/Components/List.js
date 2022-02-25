@@ -43,6 +43,7 @@ const List = ({editer}) => {
   function opener (id) {
     setDetailId(id)
     setShowPopup(!showPopup)
+    window.scrollTo(0,0)
   }
 
   function deleter (id) {
@@ -52,6 +53,10 @@ const List = ({editer}) => {
 
   return (
     <div className='col s12'>
+      {showPopup
+      ?<Details bookId={detailId} close={opener}/>
+      : null
+      }
           <div>
             <h4 className='lighten col s3'>Title</h4>
             <h4 className='lighten col s5'>Authors</h4>
@@ -65,7 +70,7 @@ const List = ({editer}) => {
               <div key={book._id} className='row'>
                 <div className='col s3'>{book.title}</div>
                 <div className='col s5'>{book.authors}</div>
-                <div className='col s1'>{book.date}</div>
+                <div className='col s1'>{book.year}</div>
                 <div className='col s3'>
                   <button
                     className='btn btn-small btn-flat dark-blue darken-4'
@@ -82,8 +87,7 @@ const List = ({editer}) => {
                   <button
                     className='btn tn-small btn-flat dark-blue darken-4'
                     style={{ marginLeft: '2px' }}
-                    onClick={() => {editer(book._id)}}
-                    >
+                    onClick={() => {editer(book._id)}}>
                     <i className='material-icons'>edit</i>
                   </button>
                 </div>
@@ -91,10 +95,6 @@ const List = ({editer}) => {
               </div>
             )
           })}
-    {showPopup
-    ?<Details bookId={detailId} close={opener}/>
-    : null
-    }
         </div>
     </div>
   )

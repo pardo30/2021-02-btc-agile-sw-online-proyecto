@@ -11,7 +11,7 @@ const FormEdit = (props) => {
             editorial: "",
             pages: "",
             ISBN: "",
-            date: "" 
+            year: "" 
         }
     )
 
@@ -54,7 +54,7 @@ const FormEdit = (props) => {
                     editorial: "",
                     pages: "",
                     ISBN: "",
-                    date: "" 
+                    year: "" 
                 })
             })
             .catch(err => console.log(err))
@@ -134,11 +134,11 @@ const FormEdit = (props) => {
                         Year:
                     </label>
                     <input
-                        name='date'
+                        name='year'
                         type='number'
                         placeholder='Year'
                         onChange={handleChande}
-                        value={book.date}
+                        value={book.year}
                     />
                 </div>  
                 <div className='input-field col s12'>

@@ -22,16 +22,16 @@ bookMethod.getAllBooks = async (req,res) => {
 };
 
 bookMethod.createBook = async (req,res) => {
-    const {title,authors,description,editorial,pages,ISBN,date} =  req.body;
-    const book = new Book({title,authors,description,editorial,pages,ISBN,date})
+    const {title,authors,description,editorial,pages,ISBN,year} =  req.body;
+    const book = new Book({title,authors,description,editorial,pages,ISBN,year})
     await book.save()
     res.status(200).json({status: 'Book created.'})
 };
 
 bookMethod.updateBook = async (req,res) => {
     const id = req.params.id;
-    const {title,authors,description,editorial,pages,ISBN,date} =  req.body;
-    const newBook = {title,authors,description,editorial,pages,ISBN,date};
+    const {title,authors,description,editorial,pages,ISBN,year} =  req.body;
+    const newBook = {title,authors,description,editorial,pages,ISBN,year};
     await Book.findByIdAndUpdate(id, newBook)
     res.status(200).json({status: 'Book updated.'})
 };

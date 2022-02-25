@@ -21,9 +21,14 @@ const bookSchema = new Schema({
     ISBN: {
         type: String,
     },
-    date: {
+    year: {
         type: Number,
+    },
+    date: {
+        type: Date,
+
     }
+
 });
 
 bookSchema.index({name: 'text'},{name: 'textScore'});

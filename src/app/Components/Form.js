@@ -10,7 +10,7 @@ const Form = () => {
             editorial: "",
             pages: "",
             ISBN: "",
-            date: "" 
+            year: "" 
         }
     )
 
@@ -38,7 +38,7 @@ const Form = () => {
                     editorial: "",
                     pages: "",
                     ISBN: "",
-                    date: "" 
+                    year: "" 
                 })
             })
             .catch(err => console.log(err))
@@ -118,11 +118,11 @@ const Form = () => {
                         Year:
                     </label>
                     <input
-                        name='date'
+                        name='year'
                         type='number'
                         placeholder='Year'
                         onChange={handleChande}
-                        value={book.date}
+                        value={book.yaer}
                     />
                 </div>  
                 <div className='input-field col s12'>

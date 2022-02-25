@@ -3,8 +3,14 @@ import React from 'react'
 const Header = () => {
   return (
     <div id='Header'>
-      My Personal Book Collection
-    <div>Search</div>
+      <nav className="teal darken-3">
+        <div className="container">
+          <div className="nav-wrapper left-align">
+            <a href="#" className="brand-logo">My Personal Book Collection</a>
+          </div>
+          <div className='right-align'>Search</div>
+        </div>
+      </nav>
     </div>
   )
 }
