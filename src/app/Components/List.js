@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Details from './Details';
 
-const List = () => {
+const List = ({editer}) => {
   const PORT = process.env.PORT || 4400;
   const [books, setBooks] = useState([]);
   const [detailId, setDetailId] = useState('');
@@ -22,7 +22,7 @@ const List = () => {
   }
 
   function deleteBook(id) {
-    if (window.confirm(`Do you want to delete ${id}?`)) {
+    if (window.confirm(`Do you want to delete it?`)) {
       fetch(`http://localhost:${PORT}/book/delete/${id}`, {
           method: 'DELETE',
           headers: {
@@ -33,9 +33,9 @@ const List = () => {
           .then(res => res.json())
           .then(data => {
             console.log(data)
-              window.M.toast({ html: 'Book deleted' })
+              window.M.toast({ html: 'Book deleted' })   
           })
-          .then(getBooks())
+          .then(window.location.reload())
           .catch(err => console.error(err))
   }
   }
@@ -50,15 +50,14 @@ const List = () => {
     deleteBook(id)
   }
 
-
   return (
     <div className='col s12'>
           <div>
-            <div className='lighten col s3'>Title</div>
-            <div className='lighten col s5'>Authors</div>
-            <div className='lighten col s1'>Year</div>
-            <div className='lighten col s3'></div>
-          <hr/>
+            <h4 className='lighten col s3'>Title</h4>
+            <h4 className='lighten col s5'>Authors</h4>
+            <h4 className='lighten col s1'>Year</h4>
+            <h4 className='lighten col s3'></h4>
+          {/* <hr/> */}
           </div>
         <div className='col s12'>
           {books.map(book => {
@@ -81,8 +80,10 @@ const List = () => {
                     <i className='material-icons'>delete</i>
                   </button>
                   <button
-                    className='btn-small btn-flat dark-blue darken-4'
-                    style={{ marginLeft: '2px' }}>
+                    className='btn tn-small btn-flat dark-blue darken-4'
+                    style={{ marginLeft: '2px' }}
+                    onClick={() => {editer(book._id)}}
+                    >
                     <i className='material-icons'>edit</i>
                   </button>
                 </div>

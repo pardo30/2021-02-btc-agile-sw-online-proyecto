@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const Form = () => {
+const Form = (props) => {
     const PORT = process.env.PORT || 4400;
+    const bookId = props.editId
     const [book,setBook] = useState (
         {
             title: "",
@@ -14,14 +15,28 @@ const Form = () => {
         }
     )
 
+    useEffect(() => {
+        GetBook()
+    }, [])
+
+    function GetBook() {
+        fetch(`http://localhost:${PORT}/book/getBook/${bookId}`)
+            .then(res => res.json())
+            .then(data => {
+                setBook(data)
+            })
+            .catch(err => console.log(err))
+    }
+
+
     function handleChande(e) {
         const {name,value} = e.target;
         setBook(({...book, [name]: value}))
     }
 
-    function AddBook(e) {
-        fetch(`http://localhost:${PORT}/book/create`, {
-            method: 'POST',
+    function EditBook(e) {
+        fetch(`http://localhost:${PORT}/book/update/${bookId}`, {
+            method: 'PUT',
                 body: JSON.stringify(book),
                 headers: {
                     'Content-type': 'application/json',
@@ -30,7 +45,8 @@ const Form = () => {
         })
             .then(res=>res.json())
             .then(data => {
-                window.M.toast({html: 'Book added'})
+                window.M.toast({html: 'Book Edited'})
+                console.log(data)
                 setBook({
                     title: "",
                     authors: "",
@@ -46,8 +62,8 @@ const Form = () => {
 
     return (
         <div className='column'>
-            <form onSubmit={AddBook}>
-                <h4 className='card-title'>ADD A BOOK</h4>
+            <form onSubmit={EditBook}>
+                <h4 className='card-title'>EDIT A BOOK</h4>
                 <div className='input-field col s12'>
                     <label className='text-form'>
                         Title:
@@ -139,7 +155,7 @@ const Form = () => {
                     ></textarea>
 
                 </div>
-                <button type='submit' className='btn dark-blue btn-darken-4'>Add</button>
+                <button type='submit' className='btn dark-blue btn-darken-4'>Edit</button>
             </form>
         </div>
     )
