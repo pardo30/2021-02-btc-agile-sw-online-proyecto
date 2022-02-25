@@ -92,7 +92,7 @@ const List = ({editer}) => {
             )
           })}
     {showPopup
-    ?<Details bookId={detailId}/>
+    ?<Details bookId={detailId} close={opener}/>
     : null
     }
         </div>

@@ -19,30 +19,27 @@ const Details = (props) => {
             .catch(err => console.log(err))
     }
 
+
+
     return (
         <div className='row'>
             <div className='col s12'>
-                <div className='card blue-grey darken-1'>
+                <div className='card medium teal darken-2'>
                     <div className='card-content white-text'>
-                        <span className='card-title activator white-text text-darken-4'>{book.title}<i class="material-icons right">control_point</i></span>
-                        <div className="card-content">
-                            <div>{book.authors}</div>
-                            <div>{book.date}</div>
-                        </div>
+                        <div className='card-title activator white-text text-darken-4 col s11'>{book.title}</div>
+                        <button onClick={props.close} className='btn btn-flat trasparent white-text col s1'><i className="material-icons">cancel</i>
+                        </button>
+                        <div className='col s12 left-align'>Authors: {book.authors}</div>
+                        <div className='col s2 left-align'>Year: {book.date}</div>
+                        <div className='col s2 left-align'>Pages: {book.pages}</div>
+                        <div className='col s3 left-align'>ISBN: {book.ISBN}</div>
+                        <div className='col s5 left-align'>Editorial: {book.editorial}</div>
+                        <div className='col s12 left-align'>Description: {book.description}</div>
                     </div>
-                        <div className='card-reveal left-align'>
-                            <div className='card-title activator grey-text text-darken-4 col s12'>{book.title}<i class="material-icons right">cancel</i></div>
-                            <div className='col s8'>Authors: {book.authors}</div>
-                            <div className='col s4'>Year: {book.date}</div>
-                            <div className='col s3'>Pages: {book.pages}</div>
-                            <div className='col s3'>ISBN: {book.ISBN}</div>
-                            <div className='col s12'>Editorial: {book.editorial}</div>
-                            <div className='col s12'>Description: {book.description}</div>
-                        </div>
                 </div>
             </div>
-            </div>
-            )
+        </div>
+    )
 }
 
-            export default Details
+export default Details

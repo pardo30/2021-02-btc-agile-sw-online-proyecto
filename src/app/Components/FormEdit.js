@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const Form = (props) => {
+const FormEdit = (props) => {
     const PORT = process.env.PORT || 4400;
     const bookId = props.editId
     const [book,setBook] = useState (
@@ -161,4 +161,4 @@ const Form = (props) => {
     )
 }
 
-export default Form
+export default FormEdit
