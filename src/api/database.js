@@ -1,21 +1,12 @@
 const mongoose = require('mongoose');
 const db = mongoose.connection;
-const dotenv = require('dotenv');
-dotenv.config();
-const URI = process.env.DB_URI || 'mongodb://localhost/db2';
+require('dotenv').config();
+const URI = process.env.NODE_ENV==='test'
+    ? process.env.DB_URI_TEST
+    : process.env.DB_URI
 
-function connect() {
-    mongoose.connect(URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
-    db.on('open', () => {
-        console.log('Database connected:', process.env.DB_URI);
-    })
+mongoose.connect(URI)
+  .then(db => console.log('Database connected:', URI))
+  .catch(error => console.error(error));
 
-    db.on('error', error => {
-        console.error(error);
-    })
-};
-
-connect();
+module.exports = mongoose;

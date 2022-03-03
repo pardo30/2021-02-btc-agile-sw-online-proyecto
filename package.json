@@ -21,11 +21,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "NODE_ENV=production react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "NODE_ENV=test jest --verbose --silent --detectOpenHandles",
+    "test:watch": "npm run test -- --watch",
     "eject": "react-scripts eject",
-    "dev": "nodemon src/api/index.js"
+    "dev": "NODE_ENV=developement nodemon src/api/index.js"
   },
   "eslintConfig": {
     "extends": [
@@ -47,7 +48,12 @@
   },
   "devDependencies": {
     "dotenv-webpack": "^7.1.0",
+    "jest": "^27.5.1",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
