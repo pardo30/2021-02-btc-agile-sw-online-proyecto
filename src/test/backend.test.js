@@ -7,6 +7,6 @@ describe('Backend endpoint test', () => {
 
     it('Gets status / endpoint', async ()=> {
         const res = await request.get('/');
-        expect(res.status).toBe(400)
+        expect(res.status).toBe(200)
     });
 })
