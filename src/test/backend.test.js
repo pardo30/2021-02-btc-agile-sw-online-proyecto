@@ -16,14 +16,6 @@ describe('Backend endpoint test', () => {
         expect(res.status).toBe(200)
     });
 
-
-    // it("Get All Books", async done => {
-    //     await request
-    //         .get('/book/getAllBooks')
-    //         // .set("Accept", "application/json")
-    //         // .expect("Content-Type", /application\/json/)
-    //         .expect(200, done);
-    // });
     it("Post a Book", async () => {
         await request
             .post('/book/create')
@@ -31,16 +23,15 @@ describe('Backend endpoint test', () => {
             .set("Accept", "application/json")
             .expect("Content-Type", /application\/json/)
             .expect(200)
-            // .end((err, res) => {
-            //     res.status.should.equal(200);
-            //     res.body.success.should.equal(true);
-            //     done();
-            // });
-            // .end((err, res) => {
-            //     if (err) {
-            //      reject(new Error('An error occured with the payment service, err: ' + err))
-            //     }
-            //     resolve(res.body)
-            //    })
-    })
+            .then(res => {
+                expect(res.body).toBeDefined();
+             });
+    });
+
+    it("Delete a Book", async done =>{
+        const res = await request.delete(`/book//delete/${data.userId}`)
+                                    .expect(204) 
+        console.log("DELETE RESPONSE : ", res.body);
+        done(); 
+    });
 })
