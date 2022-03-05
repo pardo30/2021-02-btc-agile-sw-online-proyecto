@@ -3,12 +3,12 @@ require('./database');
 const dotenv = require('dotenv');
 dotenv.config();
 //const PORT = process.env.PORT || 4000;
-const PORT = 3500;
+const PORT = 3400;
 
-async function init() {
-    await app.listen(PORT, () => {
-        console.log('App running on port: ', PORT)
-    })
-};
+// async function init() {
+//     await app.listen(PORT, () => {
+//         console.log('App running on port: ', PORT)
+//     })
+// };
 
-init();
+// init();
