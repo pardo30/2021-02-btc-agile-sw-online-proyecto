@@ -76,15 +76,13 @@ describe('Backend endpoint test', () => {
                 expect(newBook.year).toBe(data.year)
             })
     })
-    // it("Delete a Book", async () =>{
-        // const book = await Book.create({
-        //     title: "Title 1",
-        //     year: 2019,
-        // })
-        // const bookId = book.id
-        // .delete("/book/delete/" + bookId)
-		// .expect(204)
-		// .then(async () => {
-		// 	expect(await Book.findOne({ _id: bookId })).toBeFalsy()
-		// })
+    it("Delete a Book", async () =>{
+        const book = await Book.create({
+            title: "Title 1",
+            year: 2019,
+        })
+        const bookId = book.id
+        console.log(bookId)
+        
+})
 })

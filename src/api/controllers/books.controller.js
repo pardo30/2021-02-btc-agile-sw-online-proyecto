@@ -41,7 +41,7 @@ bookMethod.updateBook = async (req,res) => {
 bookMethod.deleteBook = async (req,res) => {
     const id = req.params.id;
     await Book.findByIdAndRemove(id)
-    res.status(200).json({status: 'Book deleted.'})
+    res.status(204).json({status: 'Book deleted.'})
 };
 
 module.exports = bookMethod;
