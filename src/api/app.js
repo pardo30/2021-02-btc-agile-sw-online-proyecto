@@ -12,9 +12,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 //App listen
-app.listen(8000, () => {
-    console.log('App running on port: ', 8000)
-})
+// app.listen(8200, () => {
+//     console.log('App running on port: ', 8000)
+// })
 
 // HTTP request logger middleware
 app.use(morgan('dev'));
