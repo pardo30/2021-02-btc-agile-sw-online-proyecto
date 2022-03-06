@@ -83,6 +83,11 @@ describe('Backend endpoint test', () => {
         })
         const bookId = book.id
         console.log(bookId)
-        
+        await request
+        .delete("/book/delete/" + bookId)
+		.expect(204)
+		.then(async () => {
+			expect(await Book.findOne({ _id: bookId })).toBeFalsy()
+		})
 })
 })
