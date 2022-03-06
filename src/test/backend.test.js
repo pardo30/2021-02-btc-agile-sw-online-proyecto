@@ -1,10 +1,7 @@
 const supertest = require('supertest')
 const app = require('../api/app')
 const request = supertest(app)
-const temporalData = require('./temporalData.json')
-const fs = require('fs');
 const { send } = require('process');
-let bookID;
 const Book = require('../api/models/books.model');
 
 
@@ -15,10 +12,27 @@ describe('Backend endpoint test', () => {
         expect(res.status).toBe(200)
     });
 
-    it('Get All Books', async () => {
+    it('Get all books', async () => {
         const res = await request.get('/book/getAllBooks');
         expect(res.status).toBe(200)
     });
+
+    it('Get a book', async () => {
+        const book = await Book.create({
+            title: "Title 1",
+            year: 2019,
+        })
+        const bookId = book.id
+        console.log(bookId)
+        await request
+            .get("/book/getBook/" + bookId)
+            .expect(200)
+            .then((response) => {
+                expect(response.body._id).toBe(book.id)
+                expect(response.body.title).toBe(book.title)
+                expect(response.body.year).toBe(book.year)
+            })
+    })
 
     it('Post a Book', async () => {
         const data = { 
