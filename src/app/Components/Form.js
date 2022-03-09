@@ -55,6 +55,8 @@ const Form = () => {
                     <input
                         name='title'
                         type='text'
+                        className='title-form'
+                        autoFocus
                         placeholder='Book Title'
                         onChange={handleChande}
                         value={book.title}

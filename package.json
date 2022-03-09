@@ -25,6 +25,7 @@
     "build": "react-scripts build",
     "test": "NODE_ENV=test jest --verbose --silent --detectOpenHandles",
     "test:watch": "npm run test -- --watch",
+    "cypress": "cypress open",
     "eject": "react-scripts eject",
     "dev": "NODE_ENV=developement nodemon src/api/index.js"
   },
@@ -47,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^9.5.1",
     "dotenv-webpack": "^7.1.0",
     "jest": "^27.5.1",
     "morgan": "^1.10.0",
