@@ -22,12 +22,12 @@ const Details = (props) => {
 
 
     return (
-        <div className='row'>
+        <div className='row info-detail'>
             <div className='col s12'>
                 <div className='card small teal darken-2'>
                     <div className='card-content white-text'>
                         <div className='card-title activator white-text text-darken-4 col s11'>{book.title}</div>
-                        <button onClick={props.close} className='btn btn-flat trasparent white-text col s1'><i className="material-icons">cancel</i>
+                        <button onClick={props.close} className='btn btn-flat trasparent white-text col s1 close-detail'><i className="material-icons">cancel</i>
                         </button>
                         <div className='col s12 left-align'>Authors: {book.authors}</div>
                         <div className='col s2 left-align'>Year: {book.year}</div>

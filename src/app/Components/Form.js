@@ -70,6 +70,7 @@ const Form = () => {
                     <input
                         name='authors'
                         type='text'
+                        className='authors-form'
                         placeholder='Authors'
                         onChange={handleChande}
                         value={book.authors}
@@ -122,6 +123,7 @@ const Form = () => {
                     <input
                         name='year'
                         type='number'
+                        className='year-form'
                         placeholder='Year'
                         onChange={handleChande}
                         value={book.yaer}

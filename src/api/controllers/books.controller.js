@@ -13,7 +13,7 @@ bookMethod.getBook = async (req,res) => {
 };
 
 bookMethod.getAllBooks = async (req,res) => {
-    const books = await Book.find();
+    const books = await Book.find().sort({date: -1});
     if (books) {
         return res.status(200).json(books)
     } else {

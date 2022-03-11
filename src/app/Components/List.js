@@ -67,25 +67,25 @@ const List = ({editer}) => {
         <div className='col s12'>
           {books.map(book => {
             return (
-              <div key={book._id} className='row'>
-                <div className='col s3'>{book.title}</div>
-                <div className='col s5'>{book.authors}</div>
-                <div className='col s1'>{book.year}</div>
+              <div key={book._id} className='row books-list'>
+                <div className='col s3 title-list'>{book.title}</div>
+                <div className='col s5 author-list'>{book.authors}</div>
+                <div className='col s1 year-list'>{book.year}</div>
                 <div className='col s3'>
                   <button
                     className='btn btn-small btn-flat dark-blue darken-4'
                     onClick={() => opener(book._id)}
                   >
-                    <i className='material-icons'>info</i>
+                    <i className='material-icons info-button'>info</i>
                   </button>
                   <button
-                    className='btn btn-small btn-flat dark-blue darken-4'
+                    className='btn btn-small btn-flat dark-blue darken-4 delete-button'
                     style={{ marginLeft: '2px' }}
                     onClick={() => deleter(book._id)}>
                     <i className='material-icons'>delete</i>
                   </button>
                   <button
-                    className='btn tn-small btn-flat dark-blue darken-4'
+                    className='btn tn-small btn-flat dark-blue darken-4 edit-button'
                     style={{ marginLeft: '2px' }}
                     onClick={() => {editer(book._id)}}>
                     <i className='material-icons'>edit</i>
