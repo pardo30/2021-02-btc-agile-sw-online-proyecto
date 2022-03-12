@@ -27,6 +27,7 @@ describe('Form', () => {
           .get('.year-form')
           .type(inputYear)
           .get('.add-button').click()
+          //Check if the book has been created
           .get('.title-list')
           .contains(inputTitle)
       })
@@ -47,12 +48,17 @@ describe('Form', () => {
         const newInputTitle = "New title about Cypress"
         cy.get('.edit-button').first().click({ multiple: true })
           .get('.title-form')
+          .clear()
           .type(newInputTitle)
           .get('.edit-form-button').click()
+          .get('.title-list')
+          .contains(newInputTitle)
       })
       
       it('Delete book', ()=> {
+        const newInputTitle = "New title about Cypress"
         cy.get('.delete-button').first().click()
-        .get(div).not('.books-list')
+        cy.on('window:confirm', () => true)
+          .get('.title-list').should('not.exist')
       })
   })

@@ -27,7 +27,8 @@
     "test:watch": "npm run test -- --watch",
     "cypress": "NODE_ENV=test cypress open",
     "eject": "react-scripts eject",
-    "dev": "NODE_ENV=developement nodemon src/api/index.js"
+    "dev": "NODE_ENV=developement nodemon src/api/index.js",
+    "dev-test":"NODE_ENV=test nodemon src/api/index.js"
   },
   "eslintConfig": {
     "extends": [
