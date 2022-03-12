@@ -26,7 +26,7 @@ describe('Form', () => {
           .type(inputAuthors)
           .get('.year-form')
           .type(inputYear)
-          .type('{enter}')
+          .get('.add-button').click()
           .get('.title-list')
           .contains(inputTitle)
       })
@@ -42,6 +42,17 @@ describe('Form', () => {
           .get('.close-detail').click()
           .get('div').not('.info-detail') 
         })
+
+      it('Edit book', ()=> {
+        const newInputTitle = "New title about Cypress"
+        cy.get('.edit-button').first().click({ multiple: true })
+          .get('.title-form')
+          .type(newInputTitle)
+          .get('.edit-form-button').click()
+      })
       
-      it()
+      it('Delete book', ()=> {
+        cy.get('.delete-button').first().click()
+        .get(div).not('.books-list')
+      })
   })

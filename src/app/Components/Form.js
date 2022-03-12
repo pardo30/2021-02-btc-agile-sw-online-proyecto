@@ -84,6 +84,7 @@ const Form = () => {
                     <input
                         name='editorial'
                         type='text'
+                        className='editorial-form'
                         placeholder='Editorial'
                         onChange={handleChande}
                         value={book.editorial}
@@ -97,6 +98,7 @@ const Form = () => {
                     <input
                         name='ISBN'
                         type='text'
+                        className='ISBN-form'
                         placeholder='ISBN'
                         onChange={handleChande}
                         value={book.ISBN}
@@ -110,6 +112,7 @@ const Form = () => {
                     <input
                         name='pages'
                         type='number'
+                        className='pages-form'
                         placeholder='Pages'
                         onChange={handleChande}
                         value={book.pages}
@@ -134,16 +137,16 @@ const Form = () => {
                         Description:
                     </label>
                     <textarea
-                        className="materialize-textarea"
                         name='description'
                         type='textarea'
+                        className='materialize-textarea description-form'
                         placeholder='Description'
                         onChange={handleChande}
                         value={book.description}
                     ></textarea>
 
                 </div>
-                <button type='submit' className='btn dark-blue btn-darken-4'>Add</button>
+                <button type='submit' className='btn dark-blue btn-darken-4 add-button'>Add</button>
             </form>
         </div>
     )

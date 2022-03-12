@@ -71,6 +71,7 @@ const FormEdit = (props) => {
                     <input
                         name='title'
                         type='text'
+                        className='title-form'
                         placeholder='Book Title'
                         onChange={handleChande}
                         value={book.title}
@@ -84,6 +85,7 @@ const FormEdit = (props) => {
                     <input
                         name='authors'
                         type='text'
+                        className='authors-form'
                         placeholder='Authors'
                         onChange={handleChande}
                         value={book.authors}
@@ -97,6 +99,7 @@ const FormEdit = (props) => {
                     <input
                         name='editorial'
                         type='text'
+                        className='editorial-form'
                         placeholder='Editorial'
                         onChange={handleChande}
                         value={book.editorial}
@@ -110,6 +113,7 @@ const FormEdit = (props) => {
                     <input
                         name='ISBN'
                         type='text'
+                        className='ISBN-form'
                         placeholder='ISBN'
                         onChange={handleChande}
                         value={book.ISBN}
@@ -123,6 +127,7 @@ const FormEdit = (props) => {
                     <input
                         name='pages'
                         type='number'
+                        className='pages-form'
                         placeholder='Pages'
                         onChange={handleChande}
                         value={book.pages}
@@ -136,6 +141,7 @@ const FormEdit = (props) => {
                     <input
                         name='year'
                         type='number'
+                        className='year-form'
                         placeholder='Year'
                         onChange={handleChande}
                         value={book.year}
@@ -146,7 +152,7 @@ const FormEdit = (props) => {
                         Description:
                     </label>
                     <textarea
-                        className="materialize-textarea"
+                        className='materialize-textarea description-form'
                         name='description'
                         type='textarea'
                         placeholder='Description'
@@ -155,7 +161,7 @@ const FormEdit = (props) => {
                     ></textarea>
 
                 </div>
-                <button type='submit' className='btn dark-blue btn-darken-4'>Edit</button>
+                <button type='submit' className='btn dark-blue btn-darken-4 edit-form-button'>Edit</button>
             </form>
         </div>
     )
