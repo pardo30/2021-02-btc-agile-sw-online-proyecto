@@ -1,44 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Details from './Details';
 
-const List = ({editer}) => {
+const List = ({editer, deleter, books}) => {
   const PORT = process.env.PORT || 4400;
-  const [books, setBooks] = useState([]);
   const [detailId, setDetailId] = useState('');
   const [showPopup, setShowPopup] = useState(false);
 
-
-  useEffect(() => {
-    getBooks()
-  }, [])
-
-  function getBooks() {
-    fetch(`http://localhost:${PORT}/book/getAllBooks`)
-      .then(res => res.json())
-      .then(data => {
-        setBooks(data)
-      })
-      .catch(err => console.log(err))
-  }
-
-  function deleteBook(id) {
-    if (window.confirm(`Do you want to delete it?`)) {
-      fetch(`http://localhost:${PORT}/book/delete/${id}`, {
-          method: 'DELETE',
-          headers: {
-              'Content-type': 'application/json',
-              'Accept': 'application/json',
-          }
-      })
-          .then(res => res.json())
-          .then(data => {
-            console.log(data)
-              window.M.toast({ html: 'Book deleted' })   
-          })
-          .then(window.location.reload())
-          .catch(err => console.error(err))
-  }
-  }
 
   function opener (id) {
     setDetailId(id)
@@ -46,10 +13,6 @@ const List = ({editer}) => {
     window.scrollTo(0,0)
   }
 
-  function deleter (id) {
-    setDetailId(id)
-    deleteBook(id)
-  }
 
   return (
     <div className='col s12'>
@@ -86,7 +49,7 @@ const List = ({editer}) => {
                   <button
                     className='btn tn-small btn-flat dark-blue darken-4 edit-button'
                     style={{ marginLeft: '2px' }}
-                    onClick={() => {editer(book._id)}}>
+                    onClick={() => editer(book._id)}>
                     <i className='material-icons'>edit</i>
                   </button>
                 </div>

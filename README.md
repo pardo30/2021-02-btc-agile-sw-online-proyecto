@@ -52,7 +52,7 @@ Running tests	    npx jest
 | Principio | Fichero | Expliacación |
 | :-------: | :------: | :------: |
 | Single Responsibility Principle | '/src/app/Components/Main.js'  |  Se crean componentes con funciones únicas, ya sea agregar un libro, editarlo o mostar en una lista todos ellos. |
-| Open Closed Principle | '/src/app/Componets/List.js'  | Este componente esta abierto a la extensión, dado que toma los datos de los libros y los alamcena en un estado permitiendo extender su comportamiento y el cerrado a su modificación porque los cambios necesarios no se realizan dentro del propio componente |
+| Open Closed Principle | '/src/app/Componets/List.js'  | Este componente esta abierto a la extensión, dado que recibe los datos de los libros como props lo que hace fácil extender su comportamiento y esta cerrado a su modificación porque los cambios necesarios no se realizan dentro del propio componente |
 | ... | ...  |
 
 ## Patrones
