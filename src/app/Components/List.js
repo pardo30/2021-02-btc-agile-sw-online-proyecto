@@ -62,7 +62,6 @@ const List = ({editer}) => {
             <h4 className='lighten col s5'>Authors</h4>
             <h4 className='lighten col s1'>Year</h4>
             <h4 className='lighten col s3'></h4>
-          {/* <hr/> */}
           </div>
         <div className='col s12'>
           {books.map(book => {
