@@ -63,11 +63,65 @@ Running tests	    npx jest
 | ... | ...  |... |
 
 ## Refactors
-| Refactor | Fichero | Método
-| :-------: | :------: |:------: |
-| ... | ...  |... |
-| ... | ...  |... |
-| ... | ...  |... |
+- Composing Methods - Extract Method
+Fichero: '/src/app/Components/Main'
+La función 'deleter()' se separa el cógigo referente a borrar libros y se intoriduce una función nueva llamada 'deleteBook()'
+ANTES:
+~~~
+function deleter(deleteId) {
+    setDeleteId(deleteId)
+    if (window.confirm(`Do you want to delete it?`)) {
+    fetch(`http://localhost:${PORT}/book/delete/${deleteId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-type': 'application/json',
+            'Accept': 'application/json',
+        }
+    })
+        .then(res => res.json())
+        .then(data => {
+        console.log(data)
+            window.M.toast({ html: 'Book deleted' })   
+        })
+        .then(window.location.reload())
+        .catch(err => console.error(err))
+  }
+~~~
+DESPUÉS:
+~~~
+function deleter(deleteId) {
+    setDeleteId(deleteId)
+    deleteBook(deleteId)
+  }
+
+function deleteBook(deleteId) {
+if (window.confirm(`Do you want to delete it?`)) {
+    fetch(`http://localhost:${PORT}/book/delete/${deleteId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-type': 'application/json',
+            'Accept': 'application/json',
+        }
+    })
+        .then(res => res.json())
+        .then(data => {
+        console.log(data)
+            window.M.toast({ html: 'Book deleted' })   
+        })
+        .then(window.location.reload())
+        .catch(err => console.error(err))
+}
+~~~
+
+- Moving Features between Objects - 
+
+- Organizing Data
+
+- Simplifying Conditional Expressions
+
+- Making Method Calls Simpler
+
+- Dealing with Generalization
 
 ## Notas
 ```

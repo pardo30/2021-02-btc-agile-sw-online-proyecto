@@ -23,6 +23,7 @@ const bookSchema = new Schema({
     },
     year: {
         type: Number,
+        require: true,
     },
     date: {
         type: Date,
