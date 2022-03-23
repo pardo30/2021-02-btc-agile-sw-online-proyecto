@@ -113,7 +113,9 @@ if (window.confirm(`Do you want to delete it?`)) {
 }
 ~~~
 
-- Moving Features between Objects - Move Method
+- Moving Features between Objects - Introduce Foreign Method
+Fichero: '/src/app/Components/Details'
+La función GetBook es un método importado en el archivo Details.
 
 - Organizing Data
 

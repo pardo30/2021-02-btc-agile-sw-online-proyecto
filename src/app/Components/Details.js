@@ -1,23 +1,34 @@
 import React, { useEffect, useState } from 'react'
+import { GetBook } from '../utils/GetBook';
 
 const Details = (props) => {
     const bookId = props.bookId;
-    const PORT = process.env.PORT || 4400;
+    //const PORT = process.env.PORT || 4400;
     const [book, setBook] = useState({})
 
-    useEffect(() => {
-        GetBook()
-        console.log(bookId)
-    }, [])
+    useEffect(()=> {
+        editbook(bookId)
+    },[])
 
-    function GetBook() {
-        fetch(`http://localhost:${PORT}/book/getBook/${bookId}`)
-            .then(res => res.json())
-            .then(data => {
-                setBook(data)
-            })
-            .catch(err => console.log(err))
+    const editbook = async bookId => {
+        const data = await GetBook(bookId)
+        console.log(data)
+        setBook(data)
     }
+
+    // useEffect(() => {
+    //     GetBook(bookId)
+    //     console.log(bookId)
+    // }, [])
+
+    // function GetBook(bookId) {
+    //     fetch(`http://localhost:${PORT}/book/getBook/${bookId}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setBook(data)
+    //         })
+    //         .catch(err => console.log(err))
+    // }
 
 
 
