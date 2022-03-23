@@ -15,8 +15,8 @@ Avísanos por el slack del curso.
 ## Información
 ```
 Nombre del proyecto :
-Descripción:
-Alumno:
+Descripción: Proyecto Backend y Frontend de una aplicación para organziar una colección privada de libros 
+Alumno: Javier Pardo
 ```
 
 ## Instalación
@@ -113,7 +113,7 @@ if (window.confirm(`Do you want to delete it?`)) {
 }
 ~~~
 
-- Moving Features between Objects - 
+- Moving Features between Objects - Move Method
 
 - Organizing Data
 
