@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import Details from './Details';
+import React, { useState } from 'react'
+import BookDetails from './BookDetails';
 
-const List = ({editer, deleter, books}) => {
-  const PORT = process.env.PORT || 4400;
+const List = ({bookEditer, bookDeleter, books}) => {
   const [detailId, setDetailId] = useState('');
   const [showPopup, setShowPopup] = useState(false);
 
 
-  function opener (id) {
+  function BookDetailsOpener (id) {
     setDetailId(id)
     setShowPopup(!showPopup)
     window.scrollTo(0,0)
@@ -17,7 +16,7 @@ const List = ({editer, deleter, books}) => {
   return (
     <div className='col s12'>
       {showPopup
-      ?<Details bookId={detailId} close={opener}/>
+      ?<BookDetails bookId={detailId} close={BookDetailsOpener}/>
       : null
       }
           <div>
@@ -36,20 +35,20 @@ const List = ({editer, deleter, books}) => {
                 <div className='col s3'>
                   <button
                     className='btn btn-small btn-flat dark-blue darken-4'
-                    onClick={() => opener(book._id)}
+                    onClick={() => BookDetailsOpener(book._id)}
                   >
                     <i className='material-icons info-button'>info</i>
                   </button>
                   <button
                     className='btn btn-small btn-flat dark-blue darken-4 delete-button'
                     style={{ marginLeft: '2px' }}
-                    onClick={() => deleter(book._id)}>
+                    onClick={() => bookDeleter(book._id)}>
                     <i className='material-icons'>delete</i>
                   </button>
                   <button
                     className='btn tn-small btn-flat dark-blue darken-4 edit-button'
                     style={{ marginLeft: '2px' }}
-                    onClick={() => editer(book._id)}>
+                    onClick={() => bookEditer(book._id)}>
                     <i className='material-icons'>edit</i>
                   </button>
                 </div>

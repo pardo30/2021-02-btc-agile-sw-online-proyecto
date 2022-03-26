@@ -10,11 +10,11 @@ const Main = () => {
   const [deleteId, setDeleteId] = useState('');
   const [books, setBooks] = useState([]);
 
-  function editer(editId) {
+  function bookEditer(editId) {
     setEditId(editId)
   }
 
-  function deleter(deleteId) {
+  function bookDeleter(deleteId) {
     setDeleteId(deleteId)
     deleteBook(deleteId)
   }
@@ -62,8 +62,8 @@ const Main = () => {
         <List 
           editId={editId} 
           deleteId={deleteId} 
-          editer={editer}
-          deleter={deleter}
+          bookEditer={bookEditer}
+          bookDeleter={bookDeleter}
           books={books}/></div>
     </div>
   )

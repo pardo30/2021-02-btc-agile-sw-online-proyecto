@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 
+let emptyBook = {
+    title: "",
+    authors: "",
+    description: "",
+    editorial: "",
+    pages: "",
+    ISBN: "",
+    year: "" 
+}
+
 const Form = () => {
     const PORT = process.env.PORT || 4400;
-    const [book,setBook] = useState (
-        {
-            title: "",
-            authors: "",
-            description: "",
-            editorial: "",
-            pages: "",
-            ISBN: "",
-            year: "" 
-        }
-    )
+    const [book,setBook] = useState (emptyBook)
 
     function handleChande(e) {
         const {name,value} = e.target;
@@ -31,17 +31,9 @@ const Form = () => {
             .then(res=>res.json())
             .then(data => {
                 window.M.toast({html: 'Book added'})
-                setBook({
-                    title: "",
-                    authors: "",
-                    description: "",
-                    editorial: "",
-                    pages: "",
-                    ISBN: "",
-                    year: "" 
-                })
+                setBook(emptyBook)
             })
-            .catch(err => console.log(err))
+            .catch(err => console.error(err))
     }
 
     return (

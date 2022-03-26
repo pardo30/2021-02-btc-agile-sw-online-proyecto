@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react'
 
+let emptyBook = {
+    title: "",
+    authors: "",
+    description: "",
+    editorial: "",
+    pages: "",
+    ISBN: "",
+    year: "" 
+}
+
+
 const FormEdit = (props) => {
     const PORT = process.env.PORT || 4400;
     const bookId = props.editId
-    const [book,setBook] = useState (
-        {
-            title: "",
-            authors: "",
-            description: "",
-            editorial: "",
-            pages: "",
-            ISBN: "",
-            year: "" 
-        }
-    )
+    const [book,setBook] = useState (emptyBook)
 
     useEffect(() => {
         GetBook()
@@ -47,15 +48,7 @@ const FormEdit = (props) => {
             .then(data => {
                 window.M.toast({html: 'Book Edited'})
                 console.log(data)
-                setBook({
-                    title: "",
-                    authors: "",
-                    description: "",
-                    editorial: "",
-                    pages: "",
-                    ISBN: "",
-                    year: "" 
-                })
+                setBook(emptyBook)
             })
             .catch(err => console.log(err))
     }

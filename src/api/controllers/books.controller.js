@@ -1,6 +1,13 @@
 const bookMethod = {};
 const Book = require('../models/books.model');
 
+async function findBook(_fields) {
+    try {
+        return Book.findOne(_fields).exec();
+    } catch (error) {
+        return false;
+    }
+};
 
 bookMethod.getBook = async (req,res) => {
     const id = req.params.id;
@@ -23,9 +30,16 @@ bookMethod.getAllBooks = async (req,res) => {
 
 bookMethod.createBook = async (req,res) => {
     const {title,authors,description,editorial,pages,ISBN,year} =  req.body;
-    const book = new Book({title,authors,description,editorial,pages,ISBN,year})
-    await book.save()
-    res.send(book)
+    if(title){
+        const checkBook = await findBook({title:title})
+        if(!checkBook){
+            const book = new Book({title,authors,description,editorial,pages,ISBN,year})
+            await book.save()
+            res.send(book)
+        }else{
+            return res.status(400).json({status: 'Books exists.'})
+        }
+        }
 };
 
 bookMethod.updateBook = async (req,res) => {

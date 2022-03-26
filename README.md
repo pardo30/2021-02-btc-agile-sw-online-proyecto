@@ -65,65 +65,26 @@ Running tests	    npx jest
 ## Refactors
 - Composing Methods - Extract Method
 Fichero: '/src/app/Components/Main'
-La función 'deleter()' se separa el cógigo referente a borrar libros y se intoriduce una función nueva llamada 'deleteBook()'
-ANTES:
-~~~
-function deleter(deleteId) {
-    setDeleteId(deleteId)
-    if (window.confirm(`Do you want to delete it?`)) {
-    fetch(`http://localhost:${PORT}/book/delete/${deleteId}`, {
-        method: 'DELETE',
-        headers: {
-            'Content-type': 'application/json',
-            'Accept': 'application/json',
-        }
-    })
-        .then(res => res.json())
-        .then(data => {
-        console.log(data)
-            window.M.toast({ html: 'Book deleted' })   
-        })
-        .then(window.location.reload())
-        .catch(err => console.error(err))
-  }
-~~~
-DESPUÉS:
-~~~
-function deleter(deleteId) {
-    setDeleteId(deleteId)
-    deleteBook(deleteId)
-  }
-
-function deleteBook(deleteId) {
-if (window.confirm(`Do you want to delete it?`)) {
-    fetch(`http://localhost:${PORT}/book/delete/${deleteId}`, {
-        method: 'DELETE',
-        headers: {
-            'Content-type': 'application/json',
-            'Accept': 'application/json',
-        }
-    })
-        .then(res => res.json())
-        .then(data => {
-        console.log(data)
-            window.M.toast({ html: 'Book deleted' })   
-        })
-        .then(window.location.reload())
-        .catch(err => console.error(err))
-}
-~~~
+En la función 'bookDeleter()' se separa el cógigo referente a borrar libros y se intoriduce una nueva función llamada 'deleteBook()'
 
 - Moving Features between Objects - Introduce Foreign Method
 Fichero: '/src/app/Components/Details'
 La función GetBook es un método importado en el archivo Details.
 
-- Organizing Data
+- Organizing Data - Replace Data Value with Object
+Fichero: '/src/app/Components/Form' y '/src/app/Components/FormEdit'
+Se crea el objeto emptyBook para volver dejar vacios los campos en el formulario una vez lanzada la petición.
 
 - Simplifying Conditional Expressions
 
-- Making Method Calls Simpler
+- Making Method Calls Simpler - Rename Method
+Fichero: '/src/app/Components/List'
+Los métodos se han renombrado en varios archivos, pero por poner un ejemplo concreto, en el fichero List lso metódos abrir, borrar y editar se han renombrado con un nombre que detalle más a que se refieren: 'bookDetailsOpener, bookDeleter, bookEditer'.
 
-- Dealing with Generalization
+- Dealing with Generalization - Pull Up Method
+Fichero: '/src/app/Components/Main'
+La función deleteBook se ha subido del fichero 'List' al fichero padre 'Main'.
+
 
 ## Notas
 ```

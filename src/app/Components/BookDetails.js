@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { GetBook } from '../utils/GetBook';
 
-const Details = (props) => {
+const BookDetails = (props) => {
     const bookId = props.bookId;
     //const PORT = process.env.PORT || 4400;
     const [book, setBook] = useState({})
@@ -15,22 +15,6 @@ const Details = (props) => {
         console.log(data)
         setBook(data)
     }
-
-    // useEffect(() => {
-    //     GetBook(bookId)
-    //     console.log(bookId)
-    // }, [])
-
-    // function GetBook(bookId) {
-    //     fetch(`http://localhost:${PORT}/book/getBook/${bookId}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setBook(data)
-    //         })
-    //         .catch(err => console.log(err))
-    // }
-
-
 
     return (
         <div className='row info-detail'>
@@ -53,4 +37,4 @@ const Details = (props) => {
     )
 }
 
-export default Details
+export default BookDetails
