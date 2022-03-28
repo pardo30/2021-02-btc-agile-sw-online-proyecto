@@ -20,6 +20,7 @@ const Form = () => {
     }
 
     function AddBook(e) {
+        if(book.title && book.authors && book.year){
         fetch(`http://localhost:${PORT}/book/create`, {
             method: 'POST',
                 body: JSON.stringify(book),
@@ -33,7 +34,10 @@ const Form = () => {
                 window.M.toast({html: 'Book added'})
                 setBook(emptyBook)
             })
-            .catch(err => console.error(err))
+            .catch(err => alert('Are you sure this book is not on the list? Please try again.'))
+        }else{
+            alert('Please fill in all required fields.')
+        }
     }
 
     return (
@@ -42,7 +46,7 @@ const Form = () => {
                 <h4 className='card-title'>ADD A BOOK</h4>
                 <div className='input-field col s12'>
                     <label className='text-form'>
-                        Title:
+                        Title*:
                     </label>
                     <input
                         name='title'
@@ -57,7 +61,7 @@ const Form = () => {
                 </div>
                 <div className='input-field col s12'>
                     <label className='text-form'>
-                        Authors:
+                        Authors*:
                     </label>
                     <input
                         name='authors'
@@ -113,7 +117,7 @@ const Form = () => {
                 </div>
                 <div className='input-field col s6'>
                     <label className='text-form'>
-                        Year:
+                        Year*:
                     </label>
                     <input
                         name='year'

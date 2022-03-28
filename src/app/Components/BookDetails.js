@@ -8,7 +8,7 @@ const BookDetails = (props) => {
 
     useEffect(()=> {
         editbook(bookId)
-    },[])
+    },[bookId])
 
     const editbook = async bookId => {
         const data = await GetBook(bookId)
