@@ -4,64 +4,63 @@
     <img src="https://github.com/GeeksHubsAcademy/2020-geekshubs-media/blob/master/image/githubagilesoftware.jpg" >	
 </p>
 
-## Workflow
-```
-Forkea el proyecto y trabaja en tu rama.
-Commitea de vez en cuando las 'features' que vayas desarrollando.
-Una vez lo creas necesario, haz un 'pull request' a la rama Master.
-Avísanos por el slack del curso.
-```
-
 ## Información
 ```
-Nombre del proyecto :
+Nombre del proyecto : My Personal Book Collection
 Descripción: Proyecto Backend y Frontend de una aplicación para organziar una colección privada de libros 
 Alumno: Javier Pardo
 ```
 
-## Instalación
-| Alias | URL |
-| :-------: | :------: |
-| Typescript|   https://www.typescriptlang.org/| 
-| Jest Runner |  https://marketplace.visualstudio.com/items?itemName=firsttris.vscode-jest-runner |
-| vscode-icons | https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons | 
-| ts-jest | https://github.com/kulshekhar/ts-jest  | 
-
-
 ## Versiones
 | Alias | Version |
 | :-------: | :------: |
-| Visual Studio Code| 1.46   | 
-| Jest | 26.0 |
-| Cypress.io | | 
+| Visual Studio Code| 1.65.2  | 
+| cors | 2.8.5 |
+| cypress.io | 9.5.1 | 
+| dotenv | 16.0.0 |
+| express  | 4.17.3 |
+| jest | 27.5.1 |
+| mongoose | 6.2.2 |
+| node | 16.14.2 |
+| nodemon | 2.0.15 |
+| supertest | 6.2.2 |
+| react | 17.0.2 
+| react-dom | 17.0.2 |
+| morgan | 1.10.0 |
 
 
 ## Línea de comandos
 ```
-npm install --save-dev jest
-npm i @types/jest
+Instalación de Backend:
+npm i node express cors dotenv
+npm i -D morgan nodemon
 
-Prerequisites       npm i -D jest typescript	
-Installing          npm i -D ts-jest @types/jest	
-Creating config     npx ts-jest config:init	
+Instalación de Frontend:
+npx create-react-app books
 
-[Añade más comandos necesarios]
-Running tests	    npx jest
+Instalación Bases de datos:
+npm i mongoose
+
+Instalación test:
+npm i -D jest supertest cypress
+
+
+Running server:
+| Iniciar servidor en modo desarrollo | npm run dev / npm run dev-test |
+
+Running React app:
+| Iniciar la aplicación | npm start
+
+Running tests:
+| Backend | Jest | npm run jest ("NODE_ENV=test jest --verbose --silent --detectOpenHandles") |
+| Frontend | Cypress | npm run cypress ("NODE_ENV=test cypress open")
+
 ```
 ## Principios SOLID
 | Principio | Fichero | Expliacación |
 | :-------: | :------: | :------: |
 | Single Responsibility Principle | '/src/app/Components/Main.js'  |  Se crean componentes con funciones únicas, ya sea agregar un libro, editarlo o mostar en una lista todos ellos. |
 | Open Closed Principle | '/src/app/Componets/List.js'  | Este componente esta abierto a la extensión, dado que recibe los datos de los libros como props lo que hace fácil extender su comportamiento y esta cerrado a su modificación porque los cambios necesarios no se realizan dentro del propio componente |
-| ... | ...  |
-
-## Patrones
-| Patrón | Fichero | Método
-| :-------: | :------: |:------: |
-| ... | ...  |... |
-| ... | ...  |... |
-| ... | ...  |... |
-
 ## Refactors
 - Composing Methods - Extract Method
 Fichero: '/src/app/Components/Main'
