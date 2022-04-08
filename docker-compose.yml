@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  app:
+    build: './src/app'
+    ports:
+      - '4000:4000'
+    volumes:
+      - './app:usr/src/app'
+    links:
+      - api
+    networks:
+      - default
+
+  api:
+    build: './src/api'
+    ports:
+      - '4400:4400'
+    volumes:
+      - './api:usr/src/api'
+    links:
+      - db
+    networks:
+      - default
+
+  db:
+    image: mongo:latest
+    container_name: mongodb
+    hostname: mongodb
+    networks:
+      - default
+    ports:
+      - 27017:27017
