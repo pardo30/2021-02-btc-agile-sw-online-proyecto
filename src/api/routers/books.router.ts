@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { createBook, getBook, getAllBooks, updateBook, deleteBook } = require('../controllers/books.controller');
+const { createBook, getBook, getAllBooks, updateBook, deleteBook } = require('../controllers/books.controller.ts');
 
 
 router

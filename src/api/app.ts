@@ -18,7 +18,7 @@ app.use(morgan('dev'));
 app.get('/', (req, res) => { res.json('Home Page') });
 
 // Routes
-app.use('/book', require('./routers/books.router'))
+app.use('/book', require('./routers/books.router.ts'))
 
 
 module.exports = app;

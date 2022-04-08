@@ -1,5 +1,5 @@
 const bookMethod = {};
-const Book = require('../models/books.model');
+const Book = require('../models/books.model.ts');
 
 const findBook = async (_fields) => {
     try {

@@ -6,7 +6,7 @@ const Header = () => {
       <nav className="teal darken-3">
         <div className="container">
           <div className="nav-wrapper left-align">
-            <a href="#" className="brand-logo">My Personal Book Collection</a>
+            <div className="brand-logo">My Personal Book Collection</div>
           </div>
           <div className='right-align'>Search</div>
         </div>
