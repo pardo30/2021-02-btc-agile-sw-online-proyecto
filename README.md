@@ -87,11 +87,11 @@ La función deleteBook se ha subido del fichero 'List' al fichero padre 'Main'.
 
 ## Notas
 ```
-Este proyectos es una aplicación para recopilar y almacenar una colección privada de libros. 
+Este proyecto es una aplicación para recopilar y almacenar una colección privada de libros. 
 
 Esta dividiso en una parte de backend, alojado en la carpeta api, donde aparece un CRUD con Express, conectado a una base de datos de MongoDB. La otra parte, la del frontend, en la carpeta app, es una aplicación creada con React + Materialize.
 
 La parte de testing del frontend se realiza con Cypress, mientras que el backend se testea con jest y supertest.
 
-Se han utilizado refactorings y principios SOLID en ambas partes del código.
+Se han utilizado refactors y principios SOLID a lo largo de todo el código.
 ```
