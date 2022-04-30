@@ -3,7 +3,6 @@ import { GetBook } from '../utils/GetBook';
 
 const BookDetails = (props) => {
     const bookId = props.bookId;
-    //const PORT = process.env.PORT || 4400;
     const [book, setBook] = useState({})
 
     useEffect(()=> {

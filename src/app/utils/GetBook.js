@@ -1,4 +1,4 @@
-const PORT = process.env.PORT || 4400;
+const PORT = process.env.API_PORT || 4400;
 
 const GetBook = async (bookId) => {
     const book = await fetch(`http://localhost:${PORT}/book/getBook/${bookId}`)

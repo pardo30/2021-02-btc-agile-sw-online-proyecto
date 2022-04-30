@@ -6,6 +6,8 @@ const Book = require('../api/models/books.model');
 
 describe('Backend endpoint test', () => {
     beforeAll(() => jest.setTimeout(10000))
+    afterEach(() => Book.deleteMany())
+    
 
     it('Get all books', async () => {
         await request
@@ -39,10 +41,12 @@ describe('Backend endpoint test', () => {
             })
     });
 
+
+
     it('Post a Book', async () => {
         const data = { 
-            title: 'Title 1',
-            authors: 'Author 1',
+            title: 'Title 2',
+            authors: 'Author 2',
             year: 2022
         }
         await request
@@ -65,8 +69,8 @@ describe('Backend endpoint test', () => {
 
     it('Update a book', async () => {
         const originalBook = await Book.create({
-            title: 'Title 1',
-            authors: 'Author 1',
+            title: 'Title 3',
+            authors: 'Author 3',
             year: 2022
         })
         const bookId = originalBook.id
@@ -96,8 +100,8 @@ describe('Backend endpoint test', () => {
 
     it('Delete a Book', async () =>{
         const book = await Book.create({
-            title: 'Title 1',
-            authors: 'Author 1',
+            title: 'Title 4',
+            authors: 'Author 4',
             year: 2022
         })
         const bookId = book.id
