@@ -43,11 +43,13 @@ bookMethod.createBook = async (req, res) => {
         if (title) {
             console.log(title)
             const checkBook = await findBook({ title: title })
-            console.log(checkBook)
+            console.log(checkBook + 1)
             if (!checkBook) {
                 const book = new Book({ title, authors, description, editorial, pages, ISBN, year })
+                console.log(book)
                 await book.save()
-                return res.status(200).send(book)
+                //return res.status(200).send(book)
+                res.send(book)
             } else {
                 return res.status(400).send('Book already exists.')
             }

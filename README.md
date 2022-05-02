@@ -53,7 +53,7 @@ Running React app:
 
 Running tests:
 | Backend | Jest | npm run jest ("NODE_ENV=test jest --verbose --silent --detectOpenHandles") |
-| Frontend | Cypress | npm run cypress ("NODE_ENV=test cypress open")
+| Frontend | Cypress | npm run cypress ("NODE_ENV=test cypress open") /Cypress/integration/books.spec.js
 
 ```
 ## Principios SOLID

@@ -34,7 +34,8 @@ const Form = () => {
                 window.M.toast({html: 'Book added'})
                 setBook(emptyBook)
             })
-            .catch(err => alert('Are you sure this book is not on the list? Please try again.'))
+            .catch(err => console.log(err))
+                
         }else{
             alert('Please fill in all required fields.')
         }
