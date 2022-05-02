@@ -25,8 +25,8 @@ const Form = () => {
             method: 'POST',
                 body: JSON.stringify(book),
                 headers: {
-                    'Content-type': 'application/json',
-                    'Accept': 'application/json',
+                    'Content-type': 'application/json; charset=UTF-8',
+                   // 'Accept': 'application/json',
                 }
         })
             .then(res=>res.json())

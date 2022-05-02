@@ -7,8 +7,9 @@
 ## Información
 ```
 Nombre del proyecto : My Personal Book Collection
-Descripción: Proyecto Backend y Frontend de una aplicación para organziar una colección privada de libros 
+Descripción: Proyecto Backend y Frontend de una aplicación sencilla para organziar una colección privada de libros 
 Alumno: Javier Pardo
+GitHub: https://github.com/pardo30/2021-02-btc-agile-sw-online-proyecto.git
 ```
 
 ## Versiones
