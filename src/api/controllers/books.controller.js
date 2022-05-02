@@ -48,8 +48,7 @@ bookMethod.createBook = async (req, res) => {
                 const book = new Book({ title, authors, description, editorial, pages, ISBN, year })
                 console.log(book)
                 await book.save()
-                //return res.status(200).send(book)
-                res.send(book)
+                return res.status(200).send(book)
             } else {
                 return res.status(400).send('Book already exists.')
             }

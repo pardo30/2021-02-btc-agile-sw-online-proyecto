@@ -16,7 +16,7 @@ Alumno: Javier Pardo
 | :-------: | :------: |
 | Visual Studio Code| 1.65.2  | 
 | cors | 2.8.5 |
-| cypress.io | 9.5.1 | 
+| cypress.io | 9.6.0 | 
 | dotenv | 16.0.0 |
 | express  | 4.17.3 |
 | jest | 27.5.1 |
